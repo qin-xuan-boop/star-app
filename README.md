@@ -143,8 +143,49 @@ createStory / toggleLike / toggleBookmark / addComment ...` 内部实现换成 `
 
 ## 七、待办（下一步）
 
-- [ ] **冷启动创作内容**：在 `data/createdStories.ts` 写入 8–12 篇、每篇 600–1500 字的创作故事
-      （覆盖暗恋/暧昧/双向奔赴/遗憾/错过/分手/复合/异地恋/重逢/毕业季/初恋/告白等，每篇 2–3 标签，
-      `source:'editorial'`、`authorName:'星辰编辑部'`、带 `EDITORIAL_NOTE`，文风江南式细腻、真诚克制）；
+- [x] ~~**冷启动创作内容**~~ ✅ 已完成：8 篇创作故事已写入 `data/createdStories.ts` 并入库；
 - [ ] 正式上线前移除 `noindex,nofollow`，补齐运营主体 / 备案 / 隐私与举报的真实信息；
-- [ ] 后端接入（见第四节），替换 localStorage 数据层。
+- [ ] 后端接入：P1 已完成（数据库 + 只读接口 + SSR 切真库）；待做 P2 账号与投稿审核流、P3 互动与举报。
+
+---
+
+## 八、Git 与换机开发
+
+仓库地址：`https://github.com/qin-xuan-boop/star-app`（分支 `main`）
+
+### 换一台电脑继续开发
+
+```bash
+git clone https://github.com/qin-xuan-boop/star-app.git
+cd star-app
+npm install        # 依赖不在仓库里，必须装（约 1-2 分钟）
+npm run dev        # 打开 http://localhost:3000
+```
+
+**首次启动会自动做两件事**：
+
+1. 创建 SQLite 数据库文件 `工程/.data/star.sqlite`（已 gitignore，不进仓库）；
+2. 自动执行 seed，把 `data/createdStories.ts` 里的创作故事灌进数据库——所以换机后站点仍有全部 8 篇故事。
+
+> 需要 Node 18 以上（推荐 22）。公司电脑没有就先装 Node。
+
+### 每天开始干活前 / 收工后
+
+```bash
+git pull           # 开工前先拉最新（避免两台机器改冲突）
+# ...改代码...
+git add -A
+git commit -m "说明这次改了什么"
+git push           # 推回远程，另一台电脑就能 pull 到
+```
+
+### 仓库里有什么、没有什么
+
+| 会被跟踪（进仓库） | 不会进仓库（gitignore） |
+|---|---|
+| 全部源码、`pages/` `components/` `server/` `composables/` `data/` `assets/` | `node_modules/` 依赖包 |
+| `package.json` + `package-lock.json`（依赖清单） | `.data/` 本地 SQLite 数据库（各机器独立，自动重建） |
+| 配置文件、README | `.output/` `.nuxt/` 构建产物 |
+| | `.env` 环境变量（以后放密钥，永不提交） |
+
+**因此：换机会丢的只有本机的测试投稿 / 点赞 / 评论**（这些数据本来就只在浏览器里），故事正文和代码都在。
