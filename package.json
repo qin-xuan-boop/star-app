@@ -1,0 +1,23 @@
+{
+  "name": "star-stories",
+  "version": "2.0.0",
+  "private": true,
+  "description": "STAR 星辰 · 星辰收信处 —— 年轻人的情感故事社区（Nuxt 3 版）",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "nuxt": "^3.17.0",
+    "vue": "^3.5.0",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0"
+  }
+}

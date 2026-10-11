@@ -1,0 +1,112 @@
+/* ============================================================
+   STAR 星辰 · 设计 Token（V2 温馨治愈版）
+   ------------------------------------------------------------
+   配色：奶油暖底 + 奶白卡片 + 暖粉 / 淡紫 / 杏色点缀
+   原则：去大面积纯白与冷调；温暖、年轻、治愈，但克制不廉价；
+         保证暖色背景上的正文对比度与长文阅读舒适度。
+   所有颜色 / 间距 / 圆角 / 阴影统一在此维护，组件不硬编码色值。
+   ============================================================ */
+
+:root {
+  /* ---------- 1. 背景与表面 ---------- */
+  --bg: #fbf7f1;            /* 主背景：奶油 */
+  --bg-warm: #f8f1e9;       /* 暖米分区背景 */
+  --bg-lilac: #f6f0f8;      /* 淡紫分区背景 */
+  --bg-blush: #fdf2f3;      /* 淡粉分区背景 */
+  --surface: #fffdf9;       /* 奶白卡片 */
+  --surface-2: #faf4ec;     /* 次级表面 / 输入框底 */
+  --surface-translucent: rgba(255, 253, 249, 0.82); /* 毛玻璃卡片 */
+
+  /* ---------- 2. 文字（暖深棕系，保证对比度） ---------- */
+  --text: #403a4a;          /* 主文字：暖深棕紫 */
+  --text-strong: #332e40;
+  --text-2: #8a8295;        /* 次要文字 */
+  --text-3: #ada5b8;        /* 弱化文字 / 占位 */
+  --text-on-color: #fffaf4;/* 深色 / 彩色底上的文字 */
+  --text-on-color-2: rgba(255, 250, 244, 0.72);
+
+  /* ---------- 3. 品牌色（淡紫基因） ---------- */
+  --brand: #7165b5;
+  --brand-hover: #6558a8;
+  --brand-active: #574c92;
+  --brand-soft: #ece7f8;    /* 淡紫浅底 */
+  --brand-soft-2: #f4f1fb;
+  --lilac: #b7a9dd;         /* 浅紫点缀 */
+  --lilac-soft: #efeaf9;
+
+  /* ---------- 4. 治愈暖色 ---------- */
+  --pink: #e58c9b;          /* 小心心 / 治愈强调 */
+  --pink-deep: #d97285;
+  --pink-soft: #f9e3e7;
+  --pink-soft-2: #fdeff1;
+  --apricot: #e8b894;       /* 杏色 */
+  --apricot-deep: #d99a72;  /* 暖橙 */
+  --apricot-soft: #f8eade;
+  --gold: #c7a66a;          /* 星辰金（少量） */
+  --gold-deep: #b08f52;
+  --gold-soft: #f5eedf;
+  --mint: #8fb9a3;          /* 少量清新绿（成功 / 点缀） */
+  --mint-soft: #e7f1eb;
+
+  /* ---------- 5. 边框（暖米灰） ---------- */
+  --border: #efe6d9;
+  --border-strong: #e2d5c3;
+  --border-lilac: #e6e0f2;
+
+  /* ---------- 6. 功能色 ---------- */
+  --success: #4f8a6a;
+  --success-soft: #e6f1ea;
+  --warning: #b07c3e;
+  --warning-soft: #f9eede;
+  --danger: #c05d6d;
+  --danger-soft: #fae8ea;
+
+  /* ---------- 7. Hero 夜空（柔和暖紫蓝） ---------- */
+  --hero-1: #4a4068;
+  --hero-2: #5f5388;
+  --hero-3: #85769f;
+  --hero-glow: rgba(229, 140, 155, 0.28);   /* 暖粉光晕 */
+  --hero-glow-2: rgba(183, 169, 221, 0.3);  /* 淡紫光晕 */
+
+  /* ---------- 8. 页脚（暖深紫棕） ---------- */
+  --footer-1: #423a5c;
+  --footer-2: #352e4c;
+
+  /* ---------- 9. 间距体系（4 的倍数） ---------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  /* ---------- 10. 圆角（柔和但不滥用大圆角） ---------- */
+  --r-sm: 8px;
+  --r: 14px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+
+  /* ---------- 11. 阴影（暖调、轻盈） ---------- */
+  --shadow-sm: 0 1px 2px rgba(122, 92, 70, 0.06);
+  --shadow: 0 2px 6px rgba(122, 92, 70, 0.05), 0 12px 30px rgba(122, 92, 70, 0.08);
+  --shadow-lg: 0 10px 20px rgba(122, 92, 70, 0.06), 0 28px 60px rgba(122, 92, 70, 0.14);
+  --shadow-pink: 0 6px 18px rgba(229, 140, 155, 0.28);
+  --shadow-brand: 0 6px 18px rgba(113, 101, 181, 0.26);
+
+  /* ---------- 12. 布局 ---------- */
+  --container: 1180px;
+  --reading: 740px;
+  --header-h: 68px;
+
+  /* ---------- 13. 字体 ---------- */
+  --font-sans: "PingFang SC", "Microsoft YaHei", "Noto Sans SC",
+    "Source Han Sans SC", system-ui, -apple-system, sans-serif;
+  --font-serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC",
+    "SimSun", Georgia, serif;
+
+  /* ---------- 14. 动效时长 ---------- */
+  --t-fast: 0.15s ease;
+  --t: 0.22s ease;
+}
